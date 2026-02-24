@@ -21,10 +21,10 @@ The app runs a **deterministic baseline** (keyword/skill dictionary + scoring) b
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
-│                           User browser                                   │
+│                           User browser                                  │
 │  ┌───────────────────────────────────────────────────────────────────┐  │
-│  │  Next.js (React + TypeScript)  │  Port 3000                        │  │
-│  │  - Two text areas: Resume + Job Description                        │  │
+│  │  Next.js (React + TypeScript)  │  Port 3000                       │  │
+│  │  - Two text areas: Resume + Job Description                       │  │
 │  │  - Submit → POST /analyze → display score, skills, next steps     │  │
 │  └───────────────────────────────────────────────────────────────────┘  │
 └─────────────────────────────────────────────────────────────────────────┘
@@ -32,19 +32,19 @@ The app runs a **deterministic baseline** (keyword/skill dictionary + scoring) b
                                         │ HTTP POST /analyze
                                         ▼
 ┌─────────────────────────────────────────────────────────────────────────┐
-│  FastAPI backend  │  Port 8000                                           │
-│  - POST /analyze: resume_text + job_description                          │  │
-│  - Skill extraction (dictionary + normalization)                         │  │
-│  - Match score (job skills found in resume)                               │  │
-│  - Optional: LLM (OpenAI) for suggested_next_steps if key set             │  │
-│  - Returns JSON: match_score, overlapping_skills, missing_skills, steps   │  │
+│  FastAPI backend  │  Port 8000                                          │
+│  - POST /analyze: resume_text + job_description                         │
+│  - Skill extraction (dictionary + normalization)                        │
+│  - Match score (job skills found in resume)                             │
+│  - Optional: LLM (OpenAI) for suggested_next_steps if key set           │
+│  - Returns JSON: match_score, overlapping_skills, missing_skills, steps │
 └─────────────────────────────────────────────────────────────────────────┘
                                         │
                                         │ (optional future: store runs)
                                         ▼
 ┌─────────────────────────────────────────────────────────────────────────┐
-│  Postgres  │  Port 5432                                                  │  │
-│  - Used by Docker Compose; ready for persistence (e.g. analysis history)  │  │
+│  Postgres  │  Port 5432                                                 │
+│  - Used by Docker Compose; ready for persistence (e.g. analysis history)│
 └─────────────────────────────────────────────────────────────────────────┘
 ```
 
