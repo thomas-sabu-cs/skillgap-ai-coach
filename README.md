@@ -1,4 +1,4 @@
-# SkillGap RAG Coach
+# SkillGap AI Coach
 
 A web app that takes a user’s **resume text** and a **job description**, extracts and normalizes skills, computes a **match score**, and suggests **missing skills** plus an **improvement plan**. No API keys required for the baseline; optional LLM mode for richer suggestions.
 
@@ -21,10 +21,10 @@ The app runs a **deterministic baseline** (keyword/skill dictionary + scoring) b
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
-│                           User browser                                   │
+│                           User browser                                  │
 │  ┌───────────────────────────────────────────────────────────────────┐  │
-│  │  Next.js (React + TypeScript)  │  Port 3000                        │  │
-│  │  - Two text areas: Resume + Job Description                        │  │
+│  │  Next.js (React + TypeScript)  │  Port 3000                       │  │
+│  │  - Two text areas: Resume + Job Description                       │  │
 │  │  - Submit → POST /analyze → display score, skills, next steps     │  │
 │  └───────────────────────────────────────────────────────────────────┘  │
 └─────────────────────────────────────────────────────────────────────────┘
@@ -32,19 +32,19 @@ The app runs a **deterministic baseline** (keyword/skill dictionary + scoring) b
                                         │ HTTP POST /analyze
                                         ▼
 ┌─────────────────────────────────────────────────────────────────────────┐
-│  FastAPI backend  │  Port 8000                                           │
-│  - POST /analyze: resume_text + job_description                          │  │
-│  - Skill extraction (dictionary + normalization)                         │  │
-│  - Match score (job skills found in resume)                               │  │
-│  - Optional: LLM (OpenAI) for suggested_next_steps if key set             │  │
-│  - Returns JSON: match_score, overlapping_skills, missing_skills, steps   │  │
+│  FastAPI backend  │  Port 8000                                          │
+│  - POST /analyze: resume_text + job_description                         │
+│  - Skill extraction (dictionary + normalization)                        │
+│  - Match score (job skills found in resume)                             │
+│  - Optional: LLM (OpenAI) for suggested_next_steps if key set           │
+│  - Returns JSON: match_score, overlapping_skills, missing_skills, steps │
 └─────────────────────────────────────────────────────────────────────────┘
                                         │
-                                        │ (optional future: store runs)
+                                        │ Stored runs in Postgres (history)
                                         ▼
 ┌─────────────────────────────────────────────────────────────────────────┐
-│  Postgres  │  Port 5432                                                  │  │
-│  - Used by Docker Compose; ready for persistence (e.g. analysis history)  │  │
+│  Postgres  │  Port 5432                                                 │
+│  - Used by Docker Compose; ready for persistence (e.g. analysis history)│
 └─────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -214,7 +214,7 @@ Follow these steps to put the project on GitHub.
 
 ### 1. Initialize Git
 
-In the project root (e.g. `05-skillgap-rag-coach`):
+In the project root (e.g. `skillgap-ai-coach`):
 
 ```bash
 git init
@@ -224,7 +224,7 @@ git init
 
 1. Go to [github.com](https://github.com) and sign in.
 2. Click **New repository** (or **+** → **New repository**).
-3. Set **Repository name** to `skillgap-rag-coach` (or your choice).
+3. Set **Repository name** to `skillgap-ai-coach` (or your choice).
 4. Choose **Public** (or Private).
 5. Do **not** check “Add a README” (you already have one).
 6. Click **Create repository**.
@@ -234,13 +234,13 @@ git init
 GitHub will show a “quick setup” URL. Use it as the remote (replace `YOUR_USERNAME` and `YOUR_REPO` with your values):
 
 ```bash
-git remote add origin https://github.com/YOUR_USERNAME/skillgap-rag-coach.git
+git remote add origin https://github.com/YOUR_USERNAME/skillgap-ai-coach.git
 ```
 
 If you prefer SSH:
 
 ```bash
-git remote add origin git@github.com:YOUR_USERNAME/skillgap-rag-coach.git
+git remote add origin git@github.com:YOUR_USERNAME/skillgap-ai-coach.git
 ```
 
 ### 4. Commit and push to main
@@ -248,7 +248,7 @@ git remote add origin git@github.com:YOUR_USERNAME/skillgap-rag-coach.git
 ```bash
 git add .
 git status
-git commit -m "Initial commit: SkillGap RAG Coach - resume vs job analysis"
+git commit -m "Initial commit: SkillGap AI Coach - resume vs job analysis"
 git branch -M main
 git push -u origin main
 ```
