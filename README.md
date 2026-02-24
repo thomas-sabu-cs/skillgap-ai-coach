@@ -56,12 +56,13 @@ The app runs a **deterministic baseline** (keyword/skill dictionary + scoring) b
 
 ## Screenshots
 
-<!-- Add a screenshot of the main page here -->
+
 <!-- ![Main page](docs/screenshot-main.png) -->
+https://github.com/thomas-sabu-cs/skillgap-rag-coach/blob/main/docs/screenshot-main.png
 
-<!-- Add a screenshot of the results view here -->
+
 <!-- ![Results](docs/screenshot-results.png) -->
-
+https://github.com/thomas-sabu-cs/skillgap-rag-coach/blob/main/docs/screenshot-results.png
 ---
 
 ## Setup
