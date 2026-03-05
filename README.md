@@ -228,7 +228,6 @@ Deletes a single stored analysis run by id.
 - [ ] **Export:** Download report as PDF or markdown.
 - [ ] **RAG:** Use job description + resume chunks for retrieval-augmented suggestions when in LLM mode.
 
----
 
 ## Technical Learnings
 
