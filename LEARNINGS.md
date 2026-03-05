@@ -1,5 +1,7 @@
 # LEARNINGS — SkillGap AI Coach
 
+**tl;dr:** Built a full-stack (Next.js + FastAPI + Postgres + Docker) resume–job matcher with a deterministic baseline scoring engine and an optional LLM “expert mode.” The hard parts were getting skill extraction/normalization predictable, avoiding false positives, keeping the FE/BE JSON contract tight, and making sure the app still works perfectly with no API keys.
+
 ## 1. What I Attempted
 
 The goal of this app is to **compare a resume to a job description**, compute a **skill match score** (0–100), list **overlapping** and **missing skills**, and suggest **next steps** to improve fit. It is a **full-stack app**: Next.js (frontend) + FastAPI (backend) + Postgres (persistence) + Docker (orchestration), with an **optional LLM mode** (OpenAI) for richer suggestions when an API key is configured.
