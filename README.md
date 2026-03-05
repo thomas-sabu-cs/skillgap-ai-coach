@@ -230,6 +230,17 @@ Deletes a single stored analysis run by id.
 
 ---
 
+## Technical Learnings
+
+- **API contract:** A single, well-defined request/response shape (Pydantic + TypeScript) keeps frontend and backend in sync and makes history reload straightforward.
+- **Deterministic baseline:** Running a keyword/dictionary-based scorer first means the app works without API keys and stays testable and predictable; the LLM only enriches suggestions.
+- **Dockerized full stack:** One `docker compose up` runs Postgres, backend, and frontend with correct env and healthchecks for local dev.
+- **Optional LLM mode:** Baseline is always used for score and skills; LLM is optional for next steps, with fallback to baseline on missing key or API failure.
+
+→ Full technical learning log: [LEARNINGS.md](./LEARNINGS.md)
+
+---
+
 ## Upload to GitHub
 
 Follow these steps to put the project on GitHub.
